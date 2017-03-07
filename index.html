@@ -3,12 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Take a Breath</title>
+	<link rel="stylesheet" href="/css/tachyons.min.css">
 	<link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="debug">
 	<div class="container">
-	  <div class="circle"></div>
-	  <div class="circle2"></div>
+		<div class="buttons w-60 center flex justify-around mt5">
+			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4">COPD</button>
+			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Calming</button>
+			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Lung Capacity</button>
+			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Test</button>
+		</div>
+		<div class="pattern flex justify-center items-center vh-75">
+			<div class="circle br-100"></div>
+			<div class="circle2 absolute br-100"></div>
+		</div>
 	</div>
 </body>
 </html>

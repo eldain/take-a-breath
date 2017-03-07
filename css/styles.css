@@ -1,16 +1,7 @@
-.container{
-  height:100vh;
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  background-color:snow;
-}
-
 .circle{
   width: 200px;
   min-height: 200px;
   background-color: lightblue;
-  border-radius:100%;
   animation-delay:2s;
   animation-duration: 2.5s;
   animation-name: breath;
@@ -20,11 +11,9 @@
 }
 
 .circle2{
-  position:absolute;
   width:450px;
   height:450px;
   background-color: snow;
-  border-radius:100%;
   border:1px solid brown;
 }
 
