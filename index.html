@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Take a Breath</title>
+	<title>1, 2, Breath</title>
 	<link rel="stylesheet" href="/css/tachyons.min.css">
 	<link rel="stylesheet" href="/css/styles.css">
+	<script src="/js/script.js" charset="utf-8" defer></script>
 </head>
-<body class="debug">
-	<div class="container">
-		<div class="buttons w-60 center flex justify-around mt5">
-			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4">COPD</button>
-			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Calming</button>
-			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Lung Capacity</button>
-			<button class="button-reset br2 pa2 bg-white b--blue flex-auto mw4">Test</button>
+
+<body class="">
+	<div class="container vh-100">
+
+		<div class="buttons w-60 center flex justify-between pt5">
+			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4 bg-light-blue">Box Breathing</button>
+			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4">AIS</button>
+			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4">Pursed Lips</button>
+			<button class="button-reset br2 pa2 bg-white b--solid b--blue flex-auto mw4">Belly Breathing</button>
 		</div>
+
 		<div class="pattern flex justify-center items-center vh-75">
-			<div class="circle br-100"></div>
-			<div class="circle2 absolute br-100"></div>
+			<div class="circle1 br-100 bg-light-blue pattern1 z-1"></div>
+			<div class="circle2 absolute br-100 b-solid b--black ba bw1 bg-light-gray"></div>
 		</div>
+
 	</div>
 </body>
+
 </html>

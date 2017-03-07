@@ -1,23 +1,24 @@
-.circle{
+/* Circles for Breathing Pattern */
+.circle1{
   width: 200px;
-  min-height: 200px;
-  background-color: lightblue;
-  animation-delay:2s;
-  animation-duration: 2.5s;
-  animation-name: breath;
-  animation-direction:alternate;
-  animation-iteration-count: infinite;
-  z-index:1;
+  height: 200px;
 }
-
 .circle2{
   width:450px;
   height:450px;
-  background-color: snow;
-  border:1px solid brown;
 }
+/* End Circles */
 
-@keyframes breath {
+
+/* Classes for Each Individual Breathing Pattern */
+.pattern1{
+  animation-delay:2s;
+  animation-duration: 2.5s;
+  animation-name: pattern1;
+  animation-direction:alternate;
+  animation-iteration-count: infinite;
+}
+@keyframes pattern1 {
   from {
     transform: scale(1)
   }
@@ -25,3 +26,4 @@
     transform: scale(2.25)
   }
 }
+/* End Patterns*/
