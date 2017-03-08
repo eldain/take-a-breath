@@ -17,6 +17,11 @@
   animation-name: box-breathing;
   animation-direction: normal;
   animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes box-breathing {
@@ -36,3 +41,4 @@
   -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );
 }
 /* End Patterns */
+
