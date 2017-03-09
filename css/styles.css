@@ -1,16 +1,15 @@
-/* Circles for Breathing Pattern */
-.circle1{
-  width: 200px;
-  height: 200px;
+svg{
+  width:150px;
 }
-.circle2{
-  width:450px;
-  height:450px;
-}
-/* End Circles */
-
 
 /* Classes for Each Individual Breathing Pattern */
+.box-breathing-path {
+  stroke-dashoffset: 410;
+  stroke-dasharray:  410;
+  animation: box-breathing-path 4s linear alternate;
+  animation-delay:2s;
+  animation-iteration-count: infinite;
+}
 .box-breathing{
   animation-delay:2s;
   animation-duration: 16s;
@@ -24,7 +23,13 @@
   animation-timing-function: linear;
 }
 
-@-webkit-keyframes box-breathing {
+@keyframes box-breathing-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+} 
+
+@keyframes box-breathing {
   0% {
   -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );
   }
@@ -41,4 +46,3 @@
   -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );
 }
 /* End Patterns */
-
