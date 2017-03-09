@@ -4,8 +4,8 @@ svg{
 
 /* Classes for Each Individual Breathing Pattern */
 .box-breathing-path {
-  stroke-dashoffset: 410;
-  stroke-dasharray:  410;
+  stroke-dashoffset: 450;
+  stroke-dasharray:  450;
   animation: box-breathing-path 4s linear alternate;
   animation-delay:2s;
   animation-iteration-count: infinite;
@@ -25,9 +25,9 @@ svg{
 
 @keyframes box-breathing-path {
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 0%;
   }
-} 
+}
 
 @keyframes box-breathing {
   0% {
@@ -40,7 +40,7 @@ svg{
   -webkit-transform: scale( 2.25 );-moz-transform: scale( 2.25 );-o-transform: scale( 2.25 );-ms-transform: scale( 2.25 );transform: scale( 2.25 );
   }
   75% {
-  -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );  
+  -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );
   }
   100% {
   -webkit-transform: scale( 1 );-moz-transform: scale( 1 );-o-transform: scale( 1 );-ms-transform: scale( 1 );transform: scale( 1 );
