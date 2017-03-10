@@ -4,6 +4,7 @@ const boxButton = document.querySelector(".box-button");
 const pursedButton = document.querySelector(".pursed-button");
 const svgContainer = document.querySelector("svg");
 const circle = document.querySelector("circle");
+const descriptions = [...document.querySelector(".description-container").children];
 // End Variables
 
 
@@ -18,6 +19,9 @@ function clearAnimations(){
 		circle.classList.remove("pursed-breathing-path");
 	}
 }
+function clearDescriptions(){
+	descriptions.forEach(description => description.classList.add("dn"));
+}
 // End Functions
 
 
@@ -28,13 +32,16 @@ patternButtons.forEach(button => button.addEventListener("click", () => {
 }));
 boxButton.addEventListener("click", () => {
 	clearAnimations();
+	clearDescriptions();
 	svgContainer.classList.add("box-breathing");
-	circle.classList.add("box-breathing-path");
+	circle.classList.add("box-breathing-path")
+	descriptions[0].classList.remove("dn");
 });
 pursedButton.addEventListener("click", () => {
 	clearAnimations();
+	clearDescriptions();
 	svgContainer.classList.add("pursed-breathing");
 	circle.classList.add("pursed-breathing-path");
-	console.log(svgContainer, circle);
+	descriptions[1].classList.remove("dn");
 });
 // End Event Listeners and Functions Calls

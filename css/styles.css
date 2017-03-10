@@ -1,4 +1,7 @@
 /* General styling */
+.pattern-container{
+  min-height: 60vh;
+}
 svg{
   width:150px;
 }
