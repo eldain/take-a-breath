@@ -2,6 +2,7 @@
 const patternButtons = document.querySelectorAll("button");
 const boxButton = document.querySelector(".box-button");
 const pursedButton = document.querySelector(".pursed-button");
+const ribStretchButton = document.querySelector(".rib-stretch-button");
 const svgContainer = document.querySelector("svg");
 const circle = document.querySelector("circle");
 const descriptions = [...document.querySelector(".description-container").children];
@@ -17,6 +18,11 @@ function clearAnimations(){
 	else if(svgContainer.classList.contains("pursed-breathing")){
 		svgContainer.classList.remove("pursed-breathing");
 		circle.classList.remove("pursed-breathing-path");
+	}
+	else if(svgContainer.classList.contains("rib-stretch-breathing")){
+		console.log("inside here");
+		svgContainer.classList.remove("rib-stretch-breathing");
+		circle.classList.remove("rib-stretch-breathing-path");
 	}
 }
 function clearDescriptions(){
@@ -43,5 +49,12 @@ pursedButton.addEventListener("click", () => {
 	svgContainer.classList.add("pursed-breathing");
 	circle.classList.add("pursed-breathing-path");
 	descriptions[1].classList.remove("dn");
+});
+ribStretchButton.addEventListener("click", () => {
+	clearAnimations();
+	clearDescriptions();
+	svgContainer.classList.add("rib-stretch-breathing");
+	circle.classList.add("rib-stretch-breathing-path");
+	descriptions[2].classList.remove("dn");
 });
 // End Event Listeners and Functions Calls
