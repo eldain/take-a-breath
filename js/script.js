@@ -7,29 +7,25 @@ const svgContainer = document.querySelector("svg");
 const circle = document.querySelector("circle");
 const descriptions = [...document.querySelector(".description-container").children];
 const circleText = document.querySelector(".circle-text");
-
 // End Variables
 
 // Functions
 function clearAnimations(){
+	// Clear circle text patterns
+	changeText("");
+	clearTimeout(breatheIn);	
+	clearTimeout(hold1);
+	clearTimeout(breatheOut);
+	clearTimeout(hold2);
+	
 	if(svgContainer.classList.contains("box-breathing")){
 		svgContainer.classList.remove("box-breathing");
 		circle.classList.remove("box-breathing-path");
-		changeText("");
-		clearTimeout(breatheIn);	
-		clearTimeout(hold1);
-		clearTimeout(breatheOut);
-		clearTimeout(hold2);
 		clearTimeout(callBox);
 	}
 	else if(svgContainer.classList.contains("pursed-breathing")){
 		svgContainer.classList.remove("pursed-breathing");
 		circle.classList.remove("pursed-breathing-path");
-		changeText("");
-		clearTimeout(breatheIn);	
-		clearTimeout(hold1);
-		clearTimeout(breatheOut);
-		clearTimeout(hold2);
 		clearTimeout(callPursed);
 	}
 	else if(svgContainer.classList.contains("rib-stretch-breathing")){
@@ -53,32 +49,17 @@ function changeText(phase_text) {
 	}
 	circleText.innerHTML = phase_text;
   }
-
 function setBoxText(){
 	breatheIn = changeText("breathe in");
     hold1 = setTimeout (function(){changeText("hold")}, 4000);
     breatheOut = setTimeout (function(){ changeText("breathe out") }, 8000);
     hold2 = setTimeout (function(){changeText("hold") }, 12000);
     callBox = setTimeout (function(){setBoxText()}, 16000);
-	// breatheIn = setInterval (function(){changeText("breathe in")}, 0);
-	// hold1 = setInterval (function(){clearInterval(breatheIn); changeText("hold")}, 4000);
-	// breatheOut = setInterval (function(){clearInterval(hold1); changeText("breathe out") }, 8000);
-	// hold2 = setInterval (function(){clearInterval(breatheOut); changeText("hold");}, 12000);
-	// callBox = setInterval (function(){setBoxText(); },16000);
-	// clearLast = setInterval (function(){clearInterval(hold2); },16000);
-	
-	
 }
 function setPursedText(){
-	// breatheIn = setInterval (function(){ changeText("breathe in")}, 0);
-	// breatheOut = setInterval (function(){clearInterval(breatheIn); changeText("breathe out") }, 2000);
-	// callPursed = setInterval (function(){setPursedText();},6000);
-	// clearLast = setInterval (function(){clearInterval(breatheOut); },6000);
-
 	breatheIn = changeText("breathe in");
     breatheOut = setTimeout (function(){ changeText("breathe out") }, 2000);
     callPursed = setTimeout (function(){setPursedText()}, 6000);
-
 }
 // End Functions
 
@@ -89,20 +70,24 @@ patternButtons.forEach(button => button.addEventListener("click", () => {
 	button.classList.add("bg-light-blue");
 }));
 boxButton.addEventListener("click", () => {
-	clearAnimations();
-	clearDescriptions();	
+	if(!svgContainer.classList.contains("box-breathing")){
+		clearAnimations();
+		clearDescriptions();
+		setBoxText();
+	}
 	svgContainer.classList.add("box-breathing");
 	circle.classList.add("box-breathing-path");
 	descriptions[0].classList.remove("dn");
-	setBoxText();
 });
 pursedButton.addEventListener("click", () => {
-	clearAnimations();
-	clearDescriptions();
+	if(!svgContainer.classList.contains("pursed-breathing")){
+		clearAnimations();
+		clearDescriptions();
+		setPursedText();
+	}
 	svgContainer.classList.add("pursed-breathing");
 	circle.classList.add("pursed-breathing-path");
 	descriptions[1].classList.remove("dn");
-	setPursedText();
 });
 ribStretchButton.addEventListener("click", () => {
 	clearAnimations();
