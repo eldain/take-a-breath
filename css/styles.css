@@ -17,11 +17,11 @@ svg{
   stroke-dashoffset: 450;
   stroke-dasharray:  450;
   animation: box-breathing-path 4s linear alternate;
-  /*animation-delay:1s;*/
+  animation-delay:1s;
   animation-iteration-count: infinite;
 }
 .box-breathing{
-  /*animation-delay:1s;*/
+  animation-delay:1s;
   animation-duration: 16s;
   animation-name: box-breathing;
   animation-direction: normal;
@@ -37,11 +37,11 @@ svg{
   stroke-dashoffset: 450;
   stroke-dasharray:  450;
   animation: pursed-breathing-path 6s linear;
-  /*animation-delay:1s;*/
+  animation-delay:1s;
   animation-iteration-count: infinite;
 }
 .pursed-breathing{
-  /*animation-delay:1s;*/
+  animation-delay:1s;
   animation-duration: 6s;
   animation-name: pursed-breathing;
   animation-direction: normal;
