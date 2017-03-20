@@ -73,7 +73,7 @@ boxButton.addEventListener("click", () => {
 	if(!svgContainer.classList.contains("box-breathing")){
 		clearAnimations();
 		clearDescriptions();
-		setTimeout (setBoxText,1000);
+		setBoxText();
 	}
 	svgContainer.classList.add("box-breathing");
 	circle.classList.add("box-breathing-path");
@@ -83,7 +83,7 @@ pursedButton.addEventListener("click", () => {
 	if(!svgContainer.classList.contains("pursed-breathing")){
 		clearAnimations();
 		clearDescriptions();
-		setTimeout (setPursedText,1000);
+		setPursedText()
 	}
 	svgContainer.classList.add("pursed-breathing");
 	circle.classList.add("pursed-breathing-path");
@@ -96,6 +96,6 @@ ribStretchButton.addEventListener("click", () => {
 	circle.classList.add("rib-stretch-breathing-path");
 	descriptions[2].classList.remove("dn");
 });
-setTimeout (setBoxText,1000);
+setBoxText();
 // End Event Listeners and Functions Calls
 
