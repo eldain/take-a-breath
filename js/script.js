@@ -15,10 +15,22 @@ function clearAnimations(){
 	if(svgContainer.classList.contains("box-breathing")){
 		svgContainer.classList.remove("box-breathing");
 		circle.classList.remove("box-breathing-path");
+		changeText("");
+		clearTimeout(breatheIn);	
+		clearTimeout(hold1);
+		clearTimeout(breatheOut);
+		clearTimeout(hold2);
+		clearTimeout(callBox);
 	}
 	else if(svgContainer.classList.contains("pursed-breathing")){
 		svgContainer.classList.remove("pursed-breathing");
 		circle.classList.remove("pursed-breathing-path");
+		changeText("");
+		clearTimeout(breatheIn);	
+		clearTimeout(hold1);
+		clearTimeout(breatheOut);
+		clearTimeout(hold2);
+		clearTimeout(callPursed);
 	}
 	else if(svgContainer.classList.contains("rib-stretch-breathing")){
 		console.log("inside here");
@@ -41,28 +53,33 @@ function changeText(phase_text) {
 	}
 	circleText.innerHTML = phase_text;
   }
-  function clearCircleText(){
-	changeText("");
-	clearInterval(hold1);
-	clearInterval(breatheOut);
-	clearInterval(hold2);
-	clearInterval(textTimer);
-	clearInterval(breatheIn);
-}
 
 function setBoxText(){
-	breatheIn = setInterval (function(){ changeText("breathe in")}, 0);
-	hold1 = setInterval (function(){clearInterval(breatheIn); changeText("hold")}, 4000);
-	breatheOut = setInterval (function(){clearInterval(hold1); changeText("breathe out") }, 8000);
-	hold2 = setInterval (function(){clearInterval(breatheOut); changeText("hold") }, 12000);
-	textTimer = setInterval (function(){clearInterval(hold2); setBoxText(); clearInterval(textTimer);}, 16000);
+	breatheIn = changeText("breathe in");
+    hold1 = setTimeout (function(){changeText("hold")}, 4000);
+    breatheOut = setTimeout (function(){ changeText("breathe out") }, 8000);
+    hold2 = setTimeout (function(){changeText("hold") }, 12000);
+    callBox = setTimeout (function(){setBoxText()}, 16000);
+	// breatheIn = setInterval (function(){changeText("breathe in")}, 0);
+	// hold1 = setInterval (function(){clearInterval(breatheIn); changeText("hold")}, 4000);
+	// breatheOut = setInterval (function(){clearInterval(hold1); changeText("breathe out") }, 8000);
+	// hold2 = setInterval (function(){clearInterval(breatheOut); changeText("hold");}, 12000);
+	// callBox = setInterval (function(){setBoxText(); },16000);
+	// clearLast = setInterval (function(){clearInterval(hold2); },16000);
+	
+	
 }
 function setPursedText(){
-	breatheIn = setInterval (function(){ changeText("breathe in")}, 0);
-	breatheOut = setInterval (function(){clearInterval(breatheIn); changeText("breathe out") }, 2000);
-	textTimer = setInterval (function(){clearInterval(breatheOut); setPursedText(); clearInterval(textTimer);}, 6000);
-}
+	// breatheIn = setInterval (function(){ changeText("breathe in")}, 0);
+	// breatheOut = setInterval (function(){clearInterval(breatheIn); changeText("breathe out") }, 2000);
+	// callPursed = setInterval (function(){setPursedText();},6000);
+	// clearLast = setInterval (function(){clearInterval(breatheOut); },6000);
 
+	breatheIn = changeText("breathe in");
+    breatheOut = setTimeout (function(){ changeText("breathe out") }, 2000);
+    callPursed = setTimeout (function(){setPursedText()}, 6000);
+
+}
 // End Functions
 
 
@@ -73,21 +90,19 @@ patternButtons.forEach(button => button.addEventListener("click", () => {
 }));
 boxButton.addEventListener("click", () => {
 	clearAnimations();
-	clearDescriptions();
-	clearCircleText();
+	clearDescriptions();	
 	svgContainer.classList.add("box-breathing");
 	circle.classList.add("box-breathing-path");
 	descriptions[0].classList.remove("dn");
-	setTimeout (setBoxText, 1000);
+	setBoxText();
 });
 pursedButton.addEventListener("click", () => {
 	clearAnimations();
 	clearDescriptions();
-	clearCircleText();
 	svgContainer.classList.add("pursed-breathing");
 	circle.classList.add("pursed-breathing-path");
 	descriptions[1].classList.remove("dn");
-	setTimeout (setPursedText, 1000);
+	setPursedText();
 });
 ribStretchButton.addEventListener("click", () => {
 	clearAnimations();
@@ -96,6 +111,6 @@ ribStretchButton.addEventListener("click", () => {
 	circle.classList.add("rib-stretch-breathing-path");
 	descriptions[2].classList.remove("dn");
 });
-setTimeout (setBoxText, 1000);
+setBoxText();
 // End Event Listeners and Functions Calls
 
